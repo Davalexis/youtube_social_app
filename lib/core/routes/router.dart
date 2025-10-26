@@ -7,12 +7,7 @@ import 'package:gemini_project/features/player/view/player_view.dart';
 import 'package:gemini_project/features/profile/view/profile_view.dart';
 import 'package:gemini_project/features/shell/view/shell_view.dart';
 import 'package:go_router/go_router.dart';
-// import 'package:youtube_social_app/features/auth/view/auth_view.dart';
-// import 'package:youtube_social_app/features/explore/view/explore_view.dart';
-// import 'package:youtube_social_app/features/feed/view/feed_view.dart';
-// import 'package:youtube_social_app/features/player/view/player_view.dart';
-// import 'package:youtube_social_app/features/profile/view/profile_view.dart';
-// import 'package:youtube_social_app/features/shell/view/shell_view.dart';
+
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
 final _shellNavigatorKey = GlobalKey<NavigatorState>();

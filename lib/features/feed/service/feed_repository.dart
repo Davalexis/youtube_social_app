@@ -14,33 +14,37 @@ class FeedRepository {
 
   Future<List<VideoPost>> fetchTrendingVideos({String? pageToken}) async {
     try {
-      final response = await _dio.get('/videos', queryParameters: {
-        'part': 'snippet,statistics',
-        'chart': 'mostPopular',
-        'regionCode': 'US',
-        'maxResults': 10,
-        'pageToken': pageToken,
-      });
+      final response = await _dio.get(
+        '/videos',
+        queryParameters: {
+          'part': 'snippet,statistics', // 'statistics' includes commentCount
+          'chart': 'mostPopular',
+          'regionCode': 'US',
+          'maxResults': 10,
+          'pageToken': pageToken,
+        },
+      );
 
       final List<dynamic> items = response.data['items'];
-      
-      final videos = items.map((item) {
-        return VideoPost(
-          videoId: item['id'],
-          title: item['snippet']['title'],
-          description: item['snippet']['description'],
-          thumbnailUrl: item['snippet']['thumbnails']['high']['url'],
-          channelId: item['snippet']['channelId'],
-          channelTitle: item['snippet']['channelTitle'],
-          viewCount: item['statistics']['viewCount'] ?? '0',
-          likeCount: item['statistics']['likeCount'] ?? '0',
-          publishedAt: DateTime.parse(item['snippet']['publishedAt']),
-        );
-      }).toList();
+
+      final videos =
+          items.map((item) {
+            return VideoPost(
+              videoId: item['id'],
+              title: item['snippet']['title'],
+              description: item['snippet']['description'],
+              thumbnailUrl: item['snippet']['thumbnails']['high']['url'],
+              channelId: item['snippet']['channelId'],
+              channelTitle: item['snippet']['channelTitle'],
+              viewCount: item['statistics']['viewCount'] ?? '0',
+              likeCount: item['statistics']['likeCount'] ?? '0',
+              commentCount: item['statistics']['commentCount'] ?? '0',
+              publishedAt: DateTime.parse(item['snippet']['publishedAt']),
+            );
+          }).toList();
 
       return videos;
     } on DioException catch (e) {
-      // You can handle specific errors here
       print('Error fetching trending videos: $e');
       throw Exception('Failed to load videos');
     }

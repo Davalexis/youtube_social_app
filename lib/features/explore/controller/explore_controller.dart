@@ -9,7 +9,7 @@ final exploreControllerProvider =
 
 class ExploreController extends StateNotifier<ExploreState> {
   final ExploreRepository _exploreRepository;
-
+ 
   ExploreController(this._exploreRepository) : super(const ExploreState());
 
   Future<void> searchVideos(String query) async {

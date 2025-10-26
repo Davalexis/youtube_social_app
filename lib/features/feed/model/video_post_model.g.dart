@@ -16,6 +16,7 @@ _$VideoPostImpl _$$VideoPostImplFromJson(Map<String, dynamic> json) =>
       channelTitle: json['channelTitle'] as String,
       viewCount: json['viewCount'] as String,
       likeCount: json['likeCount'] as String,
+      commentCount: json['commentCount'] as String,
       publishedAt: DateTime.parse(json['publishedAt'] as String),
     );
 
@@ -29,5 +30,6 @@ Map<String, dynamic> _$$VideoPostImplToJson(_$VideoPostImpl instance) =>
       'channelTitle': instance.channelTitle,
       'viewCount': instance.viewCount,
       'likeCount': instance.likeCount,
+      'commentCount': instance.commentCount,
       'publishedAt': instance.publishedAt.toIso8601String(),
     };

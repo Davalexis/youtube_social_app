@@ -17,10 +17,7 @@ class _PlayerViewState extends State<PlayerView> {
     super.initState();
     _controller = YoutubePlayerController(
       initialVideoId: widget.videoId,
-      flags: const YoutubePlayerFlags(
-        autoPlay: true,
-        mute: false,
-      ),
+      flags: const YoutubePlayerFlags(autoPlay: true, mute: false),
     );
   }
 
@@ -35,15 +32,17 @@ class _PlayerViewState extends State<PlayerView> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
+     
         child: YoutubePlayerBuilder(
           player: YoutubePlayer(
+            
             controller: _controller,
-            showVideoProgressIndicator: true,
+            showVideoProgressIndicator: false,
             progressIndicatorColor: Colors.red,
-            progressColors: const ProgressBarColors(
-              playedColor: Colors.red,
-              handleColor: Colors.redAccent,
-            ),
+            // progressColors: const ProgressBarColors(
+            //   playedColor: Colors.red,
+            //   handleColor: Colors.redAccent,
+            // ),
           ),
           builder: (context, player) {
             return Column(

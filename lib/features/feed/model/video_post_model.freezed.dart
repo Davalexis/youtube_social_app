@@ -29,6 +29,8 @@ mixin _$VideoPost {
   String get channelTitle => throw _privateConstructorUsedError;
   String get viewCount => throw _privateConstructorUsedError;
   String get likeCount => throw _privateConstructorUsedError;
+  String get commentCount =>
+      throw _privateConstructorUsedError; // Added this line
   DateTime get publishedAt => throw _privateConstructorUsedError;
 
   /// Serializes this VideoPost to a JSON map.
@@ -55,6 +57,7 @@ abstract class $VideoPostCopyWith<$Res> {
     String channelTitle,
     String viewCount,
     String likeCount,
+    String commentCount,
     DateTime publishedAt,
   });
 }
@@ -82,6 +85,7 @@ class _$VideoPostCopyWithImpl<$Res, $Val extends VideoPost>
     Object? channelTitle = null,
     Object? viewCount = null,
     Object? likeCount = null,
+    Object? commentCount = null,
     Object? publishedAt = null,
   }) {
     return _then(
@@ -126,6 +130,11 @@ class _$VideoPostCopyWithImpl<$Res, $Val extends VideoPost>
                     ? _value.likeCount
                     : likeCount // ignore: cast_nullable_to_non_nullable
                         as String,
+            commentCount:
+                null == commentCount
+                    ? _value.commentCount
+                    : commentCount // ignore: cast_nullable_to_non_nullable
+                        as String,
             publishedAt:
                 null == publishedAt
                     ? _value.publishedAt
@@ -155,6 +164,7 @@ abstract class _$$VideoPostImplCopyWith<$Res>
     String channelTitle,
     String viewCount,
     String likeCount,
+    String commentCount,
     DateTime publishedAt,
   });
 }
@@ -181,6 +191,7 @@ class __$$VideoPostImplCopyWithImpl<$Res>
     Object? channelTitle = null,
     Object? viewCount = null,
     Object? likeCount = null,
+    Object? commentCount = null,
     Object? publishedAt = null,
   }) {
     return _then(
@@ -225,6 +236,11 @@ class __$$VideoPostImplCopyWithImpl<$Res>
                 ? _value.likeCount
                 : likeCount // ignore: cast_nullable_to_non_nullable
                     as String,
+        commentCount:
+            null == commentCount
+                ? _value.commentCount
+                : commentCount // ignore: cast_nullable_to_non_nullable
+                    as String,
         publishedAt:
             null == publishedAt
                 ? _value.publishedAt
@@ -247,6 +263,7 @@ class _$VideoPostImpl implements _VideoPost {
     required this.channelTitle,
     required this.viewCount,
     required this.likeCount,
+    required this.commentCount,
     required this.publishedAt,
   });
 
@@ -270,11 +287,14 @@ class _$VideoPostImpl implements _VideoPost {
   @override
   final String likeCount;
   @override
+  final String commentCount;
+  // Added this line
+  @override
   final DateTime publishedAt;
 
   @override
   String toString() {
-    return 'VideoPost(videoId: $videoId, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, channelId: $channelId, channelTitle: $channelTitle, viewCount: $viewCount, likeCount: $likeCount, publishedAt: $publishedAt)';
+    return 'VideoPost(videoId: $videoId, title: $title, description: $description, thumbnailUrl: $thumbnailUrl, channelId: $channelId, channelTitle: $channelTitle, viewCount: $viewCount, likeCount: $likeCount, commentCount: $commentCount, publishedAt: $publishedAt)';
   }
 
   @override
@@ -296,6 +316,8 @@ class _$VideoPostImpl implements _VideoPost {
                 other.viewCount == viewCount) &&
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount) &&
+            (identical(other.commentCount, commentCount) ||
+                other.commentCount == commentCount) &&
             (identical(other.publishedAt, publishedAt) ||
                 other.publishedAt == publishedAt));
   }
@@ -312,6 +334,7 @@ class _$VideoPostImpl implements _VideoPost {
     channelTitle,
     viewCount,
     likeCount,
+    commentCount,
     publishedAt,
   );
 
@@ -339,6 +362,7 @@ abstract class _VideoPost implements VideoPost {
     required final String channelTitle,
     required final String viewCount,
     required final String likeCount,
+    required final String commentCount,
     required final DateTime publishedAt,
   }) = _$VideoPostImpl;
 
@@ -361,6 +385,8 @@ abstract class _VideoPost implements VideoPost {
   String get viewCount;
   @override
   String get likeCount;
+  @override
+  String get commentCount; // Added this line
   @override
   DateTime get publishedAt;
 

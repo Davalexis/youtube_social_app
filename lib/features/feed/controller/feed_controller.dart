@@ -29,6 +29,15 @@ class FeedController extends StateNotifier<AsyncValue<List<VideoPost>>> {
     }
   }
 
+  Future<void> refresh() async {
+    try {
+      final videos = await _feedRepository.fetchTrendingVideos();
+      state = AsyncValue.data(videos);
+    } catch (e, stack) {
+      state = AsyncValue.error(e, stack);
+    }
+  }
+
   Future<void> fetchMoreVideos() async {
     // Prevent multiple simultaneous requests
     if (_isLoading) return;

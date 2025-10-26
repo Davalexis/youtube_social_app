@@ -11,7 +11,7 @@ class AppColors {
 
 class AppTheme {
   static final themeData = ThemeData(
-    primaryColor: AppColors.accent,
+    // primaryColor: AppColors.accent,
     scaffoldBackgroundColor: AppColors.background,
     colorScheme: const ColorScheme.dark(
       primary: AppColors.accent,

@@ -14,6 +14,7 @@ class VideoPost with _$VideoPost {
     required String channelTitle,
     required String viewCount,
     required String likeCount,
+    required String commentCount, // Added this line
     required DateTime publishedAt,
   }) = _VideoPost;
 

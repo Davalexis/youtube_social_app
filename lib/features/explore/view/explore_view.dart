@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gemini_project/features/explore/controller/explore_controller.dart';
 import 'package:gemini_project/features/explore/controller/explore_state.dart';
 import 'package:gemini_project/features/explore/widget/search_result_tile.dart.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 class ExploreView extends ConsumerStatefulWidget {
   const ExploreView({super.key});
@@ -21,7 +22,9 @@ class _ExploreViewState extends ConsumerState<ExploreView> {
   }
 
   void _onSearch() {
-    ref.read(exploreControllerProvider.notifier).searchVideos(_searchController.text);
+    ref
+        .read(exploreControllerProvider.notifier)
+        .searchVideos(_searchController.text);
   }
 
   @override
@@ -41,14 +44,15 @@ class _ExploreViewState extends ConsumerState<ExploreView> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.search),
+            icon: const HugeIcon(
+              icon: HugeIcons.strokeRoundedSearch01,
+              color: Colors.white,
+            ),
             onPressed: _onSearch,
           ),
         ],
       ),
-      body: Center(
-        child: _buildBody(state),
-      ),
+      body: Center(child: _buildBody(state)),
     );
   }
 

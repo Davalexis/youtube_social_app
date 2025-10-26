@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gemini_project/core/theme/theme.dart';
 import 'package:gemini_project/features/feed/model/video_post_model.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 class SearchResultTile extends StatelessWidget {
   final VideoPost video;
@@ -25,7 +26,7 @@ class SearchResultTile extends StatelessWidget {
               child: CachedNetworkImage(
                 imageUrl: video.thumbnailUrl,
                 fit: BoxFit.cover,
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+                errorWidget: (context, url, error) => const HugeIcon(icon: HugeIcons.strokeRoundedEuro,color: Colors.white,),
               ),
             ),
             const SizedBox(width: 12),

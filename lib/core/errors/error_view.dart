@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gemini_project/core/theme/theme.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 class ErrorViewWidget extends StatelessWidget {
   final String errorMessage;
@@ -19,8 +20,8 @@ class ErrorViewWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.error_outline,
+            const HugeIcon(
+              icon: HugeIcons.strokeRoundedWifiError01,
               color: AppColors.secondaryText,
               size: 60,
             ),
@@ -39,7 +40,14 @@ class ErrorViewWidget extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.accent,
               ),
-              child: const Text('Retry'),
+              child: const Text(
+                'Retry',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                ),
+                
+              ),
             ),
           ],
         ),

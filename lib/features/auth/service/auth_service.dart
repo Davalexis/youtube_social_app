@@ -3,10 +3,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthService {
   final GoogleSignIn _googleSignIn = GoogleSignIn(
-    scopes: [
-      'email',
-      'https://www.googleapis.com/auth/youtube.readonly',
-    ],
+    scopes: ['email', 'https://www.googleapis.com/auth/youtube.readonly'],
   );
 
   Future<GoogleSignInAccount?> signInWithGoogle() async {
@@ -27,7 +24,8 @@ class AuthService {
     }
   }
 
-  Stream<GoogleSignInAccount?> get authStateChanges => _googleSignIn.onCurrentUserChanged;
+  Stream<GoogleSignInAccount?> get authStateChanges =>
+      _googleSignIn.onCurrentUserChanged;
 }
 
 final authServiceProvider = Provider<AuthService>((ref) {
